@@ -1,0 +1,11 @@
+qm list
+qm create <VMID> --name "TenVM" --memory 2048 --net0 virtio,bridge=vmbr0 --sockets 1 --cores 2 --ostype l26
+qm start <VMID>
+qm stop <VMID>
+qm shutdown <VMID>
+qm clone <VMID_nguon> <VMID_moi> --name "VM_Clone" --full
+qm snapshot <VMID> <snapshot_name>
+qm rollback <VMID> <snapshot_name>
+qm migrate <VMID> <ten_node_dich>
+qm resize <VMID> <disk> +10G
+qmrestore <duongdan_backup> <VMID>

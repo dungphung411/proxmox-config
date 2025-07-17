@@ -1,0 +1,10 @@
+//pvesh use for api proxmox
+pvesh ls /
+pvesh get /nodes
+pvesh get /nodes/<tên_node>/qemu
+pvesh create /nodes/<tên_node>/qemu/<VMID>/status/start
+pvesh create /nodes/<tên_node>/qemu/<VMID>/status/shutdown
+
+
+pvesh set /nodes/<tên_node>/qemu/<VMID>/config --memory 4096
+

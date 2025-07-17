@@ -1,0 +1,5 @@
+pvecm create <tên_cluster>
+pvecm add <IP_node_chu>
+pvecm nodes
+pvecm status
+pvecm delnode <tên_node>

@@ -1,0 +1,3 @@
+vzdump <vmid> --storage <ten_PBS_storage>
+vzdump 101 102 103 --storage <ten_PBS_storage>
+
