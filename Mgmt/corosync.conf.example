@@ -1,0 +1,48 @@
+
+logging {
+  debug: off
+  to_syslog: yes
+}
+
+nodelist {
+  node {
+    name: prmx01
+    nodeid: 2
+    quorum_votes: 1
+    ring0_addr: 10.200.5.124
+    ring1_addr: 10.200.6.124
+  }
+  node {
+    name: prmx02
+    nodeid: 1
+    quorum_votes: 1
+    ring0_addr: 10.200.5.52
+    ring1_addr: 10.200.6.52
+  }
+  node {
+    name: prmx03
+    nodeid: 3
+    quorum_votes: 1
+    ring0_addr: 10.200.5.227
+    ring1_addr: 10.200.6.227
+  }
+}
+
+quorum {
+  provider: corosync_votequorum
+}
+
+totem {
+  cluster_name: cscProxmox
+  config_version: 3
+  interface {
+    linknumber: 0
+  }
+  interface {
+    linknumber: 1
+  }
+  ip_version: ipv4-6
+  link_mode: active
+  secauth: on
+  version: 2
+}
