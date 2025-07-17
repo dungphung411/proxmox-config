@@ -1,2 +1,4 @@
 rclone copy /backups/vm/103  proxmoxs3:proxmoxs3mdp/vm103 --progress
 rclone sync proxmox:proxmoxs3mdp/vm103 /home/backups/vm/103  --progress
+rclone listremotes
+rclone lsd <remote-name>
