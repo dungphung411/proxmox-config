@@ -123,6 +123,22 @@
      ceph osd pool set research_pool crush_rule slow_tier
      ```
   4. Tích hợp Proxmox: **Storage > Add > CephFS/RBD** (ID: `ceph-storage`, Pool: realtime_pool/research_pool).
+     - Trong trường hợp giao diện GUI proxmox không nhận diện được pool
+     ```bash
+     ceph mgr module enable pg_autoscaler
+     ceph osd pool set research_pool pg_autoscale_mode on
+     ceph osd pool set realtime_pool pg_autoscale_mode on
+     ceph osd pool application enable realtime_pool rbd
+     ceph osd pool application enable research_pool rbd
+     ```
+     Sau đó tạo storage bằng Proxmox CLI
+     ```bash
+     pvesm add rbd realtime --pool realtime_pool
+     pvesm add rbd research --pool research_pool
+     ```
+
+     
+
 
 ### Bước 3: Cài đặt Proxmox VE
 #### 3.1. Chuẩn bị USB
