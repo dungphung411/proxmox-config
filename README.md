@@ -1,241 +1,249 @@
+# Khung Chương Trình Học Proxmox VE
 
-# 🚀 Proxmox VE Learning Roadmap 2026 - Complete Guide
+**Từ Cơ Bản Đến Nâng Cao**
 
-![Proxmox Logo](https://www.proxmox.com/images/proxmox/proxmox-logo.png)
+**Phiên bản:** 2.0  
+**Cập nhật:** Tháng 1, 2026  
+**Mục tiêu:** Cung cấp lộ trình học tập toàn diện từ không có kiến thức đến thành thạo Proxmox VE
 
-**Từ Zero → Production Engineer** | **250 giờ** | **4-6 tháng** | **Cập nhật: 28/01/2026**
+## Phần I: Giai Đoạn 1 - Nền Tảng Hệ Điều Hành (2-3 tuần)
 
----
+### 1.1 Mục Tiêu Giai Đoạn
+- Nắm vững kiến thức cơ bản Linux/Debian
+- Hiểu rõ về ảo hóa và hypervisor
+- Chuẩn bị môi trường lab
 
-## 📋 Mục lục
-- [Giai đoạn 1: Linux Foundation](#giai-doạn-1)
-- [Giai đoạn 2: Proxmox Core](#giai-doạn-2)
-- [Giai đoạn 3: Advanced Admin](#giai-doạn-3)
-- [Giai đoạn 4: Clustering & Ceph](#giai-doạn-4)
-- [Giai đoạn 5: DevOps Automation](#giai-doạn-5)
-- [📊 Timeline Tracker](#timeline)
-- [📚 Resources](#resources)
-- [🏆 Certification](#certification)
+### 1.2 Nội Dung Chi Tiết
+**Linux Fundamentals**  
+- Kernel Linux cơ bản: Process, Memory Management, File System  
+- Lệnh dòng lệnh: ls, cd, mkdir, chmod, chown, grep, sed, awk  
+- Package Management: apt, apt-get, dpkg (Debian/Ubuntu)  
+- User & Permission: sudo, groups, file permissions  
+- Network Basics: ifconfig, ip, netstat, ping, ssh
 
----
+**Virtualization Concepts**  
+- Ảo hóa là gì? Hypervisor Type 1 vs Type 2  
+- KVM (Kernel-based Virtual Machine): Hiểu cơ chế  
+- QEMU: Quick Emulator basics  
+- Container vs VM: Sự khác biệt và use cases
 
-## Giai đoạn 1: Linux Foundation {#giai-doạn-1}
+**Chuẩn Bị Phần Cứng**  
+- Yêu cầu tối thiểu: CPU hỗ trợ virtualization, RAM 16GB+, Disk 100GB+
+- Kiểm tra: CPU flags (vmx hoặc svm)              
+- Lab setup options: Physical server hoặc nested virtualization
 
-### 🎯 Mục tiêu (Tuần 1-3, 40 giờ)
-| Kỹ năng | Checklist |
-|---------|-----------|
-| **Linux CLI** | User mgmt, permissions, processes |
-| **Networking** | VLAN, bonding, firewall (ufw) |
-| **Storage** | LVM, ZFS, RAID concepts |
-| **Virtualization** | KVM/QEMU theory |
+### 1.3 Tài Liệu & Học Liệu
+| Tài Liệu                      | Loại     | Link/Ghi Chú                                      |
+|-------------------------------|----------|---------------------------------------------------|
+| Linux Academy - Linux Basics  | Video    | https://www.udemy.com/course/linux-basics/ |
+| Linux Handbook                | Sách/Blog| https://linuxhandbook.com/                |
+| KVM Hypervisor Basics         | Tài liệu | https://www.redhat.com/en/topics/virtualization/what-is-KVM |
+| Proxmox Architecture Overview | Chính thức | https://pve.proxmox.com/wiki/Architecture |
+| YouTube: Linux Terminal Tutorial | Video | https://www.youtube.com/results?search_query=linux+terminal+basics |
 
-### 🏋️ Labs bắt buộc
-```
-✅ [ ] Ubuntu Server 24.04 install
-✅ [ ] Static IP + SSH key auth
-✅ [ ] LVM VG/LV creation
-✅ [ ] ZFS pool + snapshots
-✅ [ ] KVM lab (VirtualBox)
-```
+### 1.4 Bài Tập Thực Hành
+- [ ] Cài đặt Ubuntu Server trên VM  
+- [ ] Thành thạo 20 lệnh Linux cơ bản  
+- [ ] Cấu hình SSH key-based authentication  
+- [ ] Kiểm tra CPU flags hỗ trợ virtualization  
+- [ ] Tạo user mới với sudo privileges
 
-**Tài liệu:**
-```
-📖 Proxmox Install: https://pve.proxmox.com/pve-docs/
-🎥 Beginner Guide: youtube.com/watch?v=lFzWDJcRsqo
-🌐 Linux Journey: https://linuxjourney.com/
-```
+## Phần II: Giai Đoạn 2 - Cơ Bản Proxmox (3-4 tuần)
 
----
+### 2.1 Mục Tiêu Giai Đoạn
+- Cài đặt và cấu hình Proxmox VE thành công  
+- Tạo và quản lý VM & LXC containers đơn giản  
+- Hiểu web GUI và CLI cơ bản
 
-## Giai đoạn 2: Proxmox VE Core {#giai-doạn-2}
+### 2.2 Nội Dung Chi Tiết
+**Installation & Initial Setup**  
+- System Requirements: CPU, RAM, Storage, Network  
+- Proxmox ISO Download & Burn: Tạo USB cài đặt  
+- Installation Process: Các step chi tiết  
+- Post-installation: Updates, subscription (disable nếu community)
 
-### 📈 Nội dung (Tuần 4-7, 60 giờ)
+**Creating VMs**  
+- VM Lifecycle: Create, Start, Stop, Delete  
+- Resource Allocation: vCPU, Memory, Disk sizing  
+- OS Installation: Windows, Ubuntu, CentOS  
+- QEMU Guest Agent: Cài đặt và cấu hình  
+- VM Snapshots: Tạo, restore, delete
 
-| Tuần | Chủ đề chính |
-|------|--------------|
-| **4** | Proxmox 8.2 install (ZFS root) |
-| **5** | KVM VMs + LXC containers |
-| **6** | Storage: Local/NFS/iSCSI |
-| **7** | Networking: Bridges/VLANs |
+**Creating LXC Containers**  
+- Container vs VM: Khác biệt chi tiết  
+- Container Creation: Sử dụng templates  
+- Container Management: Start, stop, exec
 
-### Labs Production-ready
-```
-✅ Proxmox VE 8.2 + SSL cert
-✅ 3 VMs: Ubuntu/Windows/CentOS
-✅ LXC WordPress + MariaDB
-✅ VLAN 10/20/99 + Linux Bridge
-✅ vzdump backup test
-```
+**Basic Storage**  
+- Storage Types: Local, NFS, iSCSI, LVM  
+- Local Storage: Directory, LVM, ZFS basics
 
-**Docs chính:** [Admin Guide](https://pve.proxmox.com/pve-docs/pve-admin-guide.html)
+### 2.3 Tài Liệu & Học Liệu
+| Tài Liệu                        | Loại       | Link/Ghi Chú                                           |
+|---------------------------------|------------|--------------------------------------------------------|
+| Proxmox Official Installation   | Chính thức | https://pve.proxmox.com/wiki/Installation     |
+| Proxmox Admin Guide (Part 1-3)  | Chính thức | https://pve.proxmox.com/pve-docs/pve-admin-guide.html |
+| WunderTech Beginner's Guide     | Video      | https://www.youtube.com/watch?v=lFzWDJcRsqo  |
 
----
+### 2.4 Bài Tập Thực Hành
+- [ ] Cài đặt Proxmox VE trên server/VM  
+- [ ] Tạo VM Ubuntu 22.04 LTS  
+- [ ] Tạo LXC container Debian  
+- [ ] Thực hiện snapshot và restore VM
 
-## Giai đoạn 3: Advanced Administration {#giai-doạn-3}
+## Phần III: Giai Đoạn 3 - Trung Cấp (4-5 tuần)
 
-### 🔧 5 Modules chính (Tuần 8-12, 80 giờ)
+### 3.1 Mục Tiêu Giai Đoạn
+- Cấu hình networking nâng cao
+- Quản lý storage hiệu quả
+- Triển khai backup strategy
+- Tối ưu hóa performance
 
-```mermaid
-graph LR
-    A[Backup & PBS] --> B[Networking OVS]
-    B --> C[Performance Tuning]
-    C --> D[Security Hardening]
-    D --> E[Monitoring Stack]
-```
+### 3.2 Nội Dung Chi Tiết
 
-**Labs:**
-| Module | Thời lượng | Output |
-|--------|------------|--------|
-| PBS | 15h | Backup server |
-| OVS | 20h | SDN lab |
-| Tuning | 15h | Benchmark report |
-| Security | 15h | Hardening checklist |
-| Monitoring | 15h | Grafana dashboard |
+**Advanced Networking**
+- Network Bridges: Tạo và cấu hình multiple bridges
+- VLANs: Virtual LAN configuration, tagging
+- Network Bonding: Active-active, Active-passive, Balance modes
+- Firewall: Proxmox built-in firewall, rules, zones
+- SDN: Software Defined Networking VNets, Zones cơ bản
+- DNS & DHCP: Cấu hình, troubleshooting
 
----
+**Storage Management (Intermediate)**
+- Storage Architecture: Giải thích từng loại
+- LVM: Logical Volume Manager PV, VG, LV - tạo, mở rộng, thu nhỏ
+- ZFS Fundamentals: RAID types, Datasets, Snapshots
+- NFS Setup: Tạo NFS server, mount từ Proxmox
+- iSCSI: Basics, configuration cho storage
 
-## Giai đoạn 4: Production Clustering {#giai-doạn-4}
+**Backup & Disaster Recovery**
+- Backup Types: Full, Incremental, Differential
+- Proxmox Backup Server (PBS): Giới thiệu, setup cơ bản
+- Backup Strategies: Scheduling, retention policies
 
-### 🏗️ 3-Node Hyperconverged Lab
+**Performance Optimization**
+- CPU: CPU pinning, NUMA awareness
+- Memory: Ballooning, Swap, Over-commit
+- Disk I/O: Cache modes (writethrough, writeback), Scheduler
 
-```
-Hardware Spec:
-├── Node1: 16C/64GB/2TB NVMe (Controller)
-├── Node2: 24C/128GB/4x2TB SSD  
-└── Node3: 24C/128GB/4x2TB SSD
+### 3.3 Tài Liệu & Học Liệu
+| Tài Liệu | Loại | Link/Ghi Chú |
+|----------|------|--------------|
+| Proxmox Admin Guide (Networking) | Chính thức | https://pve.proxmox.com/pve-docs/pve-admin-guide.html#_networking |
+| Proxmox Admin Guide (Storage) | Chính thức | https://pve.proxmox.com/pve-docs/pve-admin-guide.html#_storage |
+| LVM Tutorial | Blog | https://www.howtogeek.com/howto/40702/how-to-manage-and-use-lvm-logical-volume-manager/ |
+| ZFS on Linux | Tài liệu | https://openzfs.org/wiki/Documentation |
+| Proxmox Backup Server | Chính thức | https://proxmox.com/en/proxmox-backup-server/overview |
 
-Ceph Cluster:
-└── 3 MON + 9 OSD → 1PB raw (RF2)
-```
-
-**Milestones (Tuần 13-18):**
-```
-✅ [ ] Corosync quorate 3-node
-✅ [ ] Ceph HEALTH_OK status
-✅ [ ] Live migration test
-✅ [ ] HA group + failover
-✅ [ ] RBD Ceph storage for VMs
-```
-
-**Ceph Docs:** [Proxmox Ceph](https://pve.proxmox.com/wiki/Ceph)
-
----
-
-## Giai đoạn 5: DevOps & Automation {#giai-doạn-5}
-
-### 🛠️ Full Automation Stack
-
-| Tool | Use Case | Status |
-|------|----------|--------|
-| **Terraform** | VM provisioning IaC | `proxmox_vm_qemu` |
-| **Ansible** | Cluster deployment | Playbooks |
-| **Python** | REST API automation | `proxmoxer` |
-| **GitHub Actions** | CI/CD pipeline | Auto-deploy |
-
-**Terraform Example:**
-```hcl
-provider "proxmox" {
-  pm_api_url = "https://pve.example.com:8006/api2/json"
-}
-
-resource "proxmox_vm_qemu" "web_farm" {
-  count       = 3
-  name        = "web-${count.index + 1}"
-  target_node = "pve${count.index + 1}"
-  clone       = "ubuntu-cloudinit"
-  cores       = 4
-  memory      = 8192
-  ipconfig0   = "ip=dhcp"
-}
-```
+### 3.4 Bài Tập Thực Hành
+- [ ] Tạo VLAN và cấu hình VM trên các VLAN khác nhau
+- [ ] Cấu hình Network Bonding cho high availability
+- [ ] Tạo LVM storage pool từ additional disk
+- [ ] Setup NFS server và mount từ Proxmox
+- [ ] Cấu hình Firewall rules cho VMs
+- [ ] Implement backup schedule cho VM
+- [ ] Tối ưu hóa VM performance (pinning, cache modes)
 
 ---
 
-## 📊 Timeline & Progress {#timeline}
+## Phần IV: Giai Đoạn 4 - Cluster & Ceph (5-6 tuần)
 
-| Tuần | Giai đoạn | Milestone | Status | Notes |
-|------|-----------|-----------|--------|-------|
-| **1-3** | Linux | Ubuntu + LVM/ZFS | ⬜ | |
-| **4-7** | Core | 5 VMs + VLAN | ⬜ | |
-| **8-12** | Advanced | PBS + Grafana | ⬜ | |
-| **13-18** | Cluster | Ceph 1PB | ⬜ | |
-| **19-25** | DevOps | Terraform deploy | ⬜ | **COMPLETE** |
+### 4.1 Mục Tiêu Giai Đoạn
+- Xây dựng Proxmox Cluster
+- Triển khai Ceph storage
+- Quản lý high availability
+- Thực hiện live migration
 
----
+### 4.2 Nội Dung Chi Tiết
 
-## 📚 All Resources {#resources}
+**Proxmox Clustering**
+- Cluster Architecture: Corosync, pmxcfs, Pacemaker concepts
+- Creating Cluster: Setup node pertama, join node lần 2+
+- Cluster Networking: Separate corosync traffic, latency requirements
+- High Availability (HA): Failover policies, resource groups
 
-### 🎯 Official Documentation
-```
-Admin Guide: https://pve.proxmox.com/pve-docs/pve-admin-guide.html
-API Docs: https://pve.proxmox.com/pve-docs/api.html
-Ceph Guide: https://pve.proxmox.com/wiki/Ceph
-Storage: https://pve.proxmox.com/wiki/Storage
-```
+**Ceph Storage Basics**
+- Ceph Architecture: MONs, OSDs, Object storage
+- Ceph Installation: Từ Proxmox GUI, requirement kiểm tra
+- OSD Management: Add, remove, reweight OSDs
+- Ceph Pools: Tạo pools cho VM disks, containers
+- Ceph RBD: VM disk storage
 
-### 🎥 Video Training
-```
-Proxmox Official: https://www.proxmox.com/en/services/training-courses/videos
-YouTube Beginner: https://youtube.com/watch?v=lFzWDJcRsqo
-Ultimate Guide: https://youtube.com/watch?v=GHatr0Qg5mY
-```
+### 4.3 Tài Liệu & Học Liệu
+| Tài Liệu | Loại | Link/Ghi Chú |
+|----------|------|--------------|
+| Proxmox Admin Guide (Cluster) | Chính thức | https://pve.proxmox.com/pve-docs/pve-admin-guide.html#_cluster |
+| Proxmox Admin Guide (Ceph) | Chính thức | https://pve.proxmox.com/pve-docs/pve-admin-guide.html#_ceph |
+| Ceph Official Documentation | Chính thức | https://docs.ceph.com/ |
+| Proxmox Training Module 2 | Video | https://www.proxmox.com/en/services/training-courses/training |
 
-### 📖 Books & Community
-```
-Books:
-├── Proxmox VE Cookbook (Packt)
-├── Ceph Cookbook (O'Reilly)
-
-Community:
-├── Reddit: reddit.com/r/Proxmox
-├── Forum: forum.proxmox.com
-└── Discord: discord.gg/proxmox
-```
+### 4.4 Bài Tập Thực Hành
+- [ ] Tạo Proxmox cluster với 3 nodes (có thể nested VMs)
+- [ ] Verify corosync clustering communication
+- [ ] Cấu hình HA policies cho VM
+- [ ] Triển khai Ceph cluster (MON, OSD nodes)
+- [ ] Tạo Ceph pool cho VM storage
+- [ ] Thực hiện VM live migration giữa nodes
 
 ---
 
-## 🏆 Certification Path {#certification}
+## Phần V: Giai Đoạn 5 - Nâng Cao (4-6 tuần)
 
-```
-1. 🔰 Proxmox VE Foundation **(FREE)**
-   ⏱️ 60 phút online
-   📍 pve.proxmox.com/certification
+### 5.1 Mục Tiêu Giai Đoạn
+- Automation & Infrastructure as Code
+- Advanced security
+- Performance tuning & optimization
+- Multi-site & Disaster Recovery
 
-2. 💎 Proxmox VE Professional **(PAID)**
-   💰 3-day training + exam
-   📅 proxmox.com/training
+### 5.2 Nội Dung Chi Tiết
 
-3. 🐧 RHCSA **(RECOMMENDED)**
-   Linux sysadmin foundation
-```
+**Automation & Infrastructure as Code**
+- Proxmox API: REST API deep dive, curl/Python examples
+- Terraform: Proxmox Provider, Infrastructure as Code
+- Ansible: Playbooks cho Proxmox management
+
+**Advanced Security**
+- SSL/TLS Certificates: Self-signed vs Let's Encrypt
+- 2FA/MFA: Enabling multi-factor authentication
+- LDAP/AD Integration: Enterprise authentication
+
+**Performance Tuning**
+- CPU Optimization: Pinning, hyperthreading, NUMA tuning
+- Ceph Optimization: OSD tuning, PG optimization
+
+### 5.3 Tài Liệu & Học Liệu
+| Tài Liệu | Loại | Link/Ghi Chú |
+|----------|------|--------------|
+| Proxmox API Documentation | Chính thức | https://pve.proxmox.com/pve-docs/api-viewer/ |
+| Terraform Proxmox Provider | GitHub | https://github.com/Telmate/terraform-provider-proxmox |
+| Ansible Proxmox Collection | Ansible | https://github.com/ansible-collections/community.general |
+
+### 5.4 Bài Tập Thực Hành
+- [ ] Viết Terraform code để tạo 3 VMs
+- [ ] Tạo Ansible playbook cấu hình VMs automatically
+- [ ] Setup SSL/TLS với Let's Encrypt
+- [ ] Setup Kubernetes cluster trên Proxmox
+
+---
+
+## Phần VI: Tài Liệu Tham Khảo Tổng Hợp
+
+### Tài Liệu Chính Thức Proxmox
+- **Proxmox VE Administration Guide**: https://pve.proxmox.com/pve-docs/pve-admin-guide.html
+- **Proxmox API Viewer**: https://pve.proxmox.com/pve-docs/api-viewer/
+- **Proxmox Forum**: https://forum.proxmox.com/
+
+### YouTube Channels & Tutorials
+- **WunderTech**: https://www.youtube.com/c/WunderTechTutorials
+- **Proxmox Official**: Official training videos
+- **Techno Tim**: Homelab tutorials
+
+### Community Resources
+- **Community Helper Scripts**: https://community-scripts.github.io/ProxmoxVE/
+- **Proxmox Reddit**: https://www.reddit.com/r/Proxmox/
 
 ---
 
-## 💰 Budget Planning
+## Phần VII: Lộ Trình Chi Tiết Theo Thời Gian
 
-| Category | Min | Max | Notes |
-|----------|-----|-----|-------|
-| **Hardware Lab** | $2,000 | $5,000 | 3-node cluster |
-| **Training** | $0 | $2,000 | Official courses |
-| **Certification** | $0 | $1,500 | Foundation free |
-| **Books/Software** | $50 | $200 | Optional |
-| **TOTAL** | **$2,050** | **$8,700** | |
-
----
-
-## 🎓 Kết quả mong đợi
-
-```
-✅ Deploy production Proxmox cluster
-✅ Ceph storage 1PB+ scale
-✅ Terraform/Ansible automation
-✅ HA + Disaster Recovery
-✅ Monitoring + Alerting stack
-✅ Proxmox VE Certification
-```
-
-**📅 File created:** Wednesday, January 28, 2026  
-**🔗 All URLs verified active**
-
----
-*Generated by Perplexity AI Assistant | Vietnam timezone +07*
+**Khuyến Nghị Tiến Độ**:
