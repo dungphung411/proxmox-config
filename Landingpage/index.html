@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSC Distribution - Proxmox VE 2026</title>
+    <!-- Auto-generated from page-builder components -->
+<!-- Tailwind CSS (Development Mode) -->
+    <!-- LƯU Ý: Trong Production nên dùng file CSS đã compile hoặc plugin Tailwind cho WordPress -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#10b981', // emerald-500
+                            dark: '#059669', // emerald-600
+                        },
+                        slate: {
+                            850: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    },
+                    borderRadius: {
+                        '3xl': '1.5rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .backdrop-blur-md {
+            backdrop-filter: blur(12px);
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+    <!-- Schema.org for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Proxmox có miễn phí không?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Có. Nhưng trả phí thì mới có dịch vụ hỗ trợ (Enterprise Repository)."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Mua Proxmox ở đâu?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Có thể mua trực tiếp hoặc qua các đối tác ủy quyền như CSC Distribution để có mức chiết khấu tốt hơn và dịch vụ hỗ trợ đầy đủ tại Việt Nam."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Cách tính giá license Proxmox như thế nào?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "License Proxmox được tính theo số lượng CPU Socket vật lý (Physical CPU Socket)."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Proxmox cung cấp SLA dịch vụ như thế nào?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dịch vụ mặc định của Proxmox là NBD 8x5 theo giờ của Áo. Tại Việt Nam, CSC Distribution cung cấp dịch vụ hỗ trợ kỹ thuật bổ sung phù hợp với giờ làm việc địa phương."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Mua Proxmox có hóa đơn không?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Có. Khách hàng mua license dịch vụ Proxmox tại Việt Nam qua CSC Distribution sẽ được cung cấp đầy đủ hóa đơn chứng từ hợp lệ."
+        }
+      }]
+    }
+    </script>
+</head>
+<body class="bg-white text-slate-900 font-sans antialiased selection:bg-emerald-500 selection:text-white">
+<!-- START COMPONENT: 01-nav-block.html -->
+<!-- Navigation
+    <nav class="fixed w-full z-50 transition-all duration-300 glass border-b border-gray-200/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <div
+                        class="w-10 h-10 bg-emerald-600 rounded-lg flex items-center justify-center text-white text-xl font-bold shadow-lg">
+                        C
+                    </div>
+                    <span class="font-bold text-2xl tracking-tight text-slate-900">CSC <span
+                            class="text-emerald-600">Distribution</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="text-slate-600 hover:text-emerald-600 font-medium transition">Giới thiệu</a>
+                    <a href="#bundles" class="text-slate-600 hover:text-emerald-600 font-medium transition">Bundles</a>
+                    <a href="#pricing" class="text-slate-600 hover:text-emerald-600 font-medium transition">Bảng Giá</a>
+                    <a href="#cases" class="text-slate-600 hover:text-emerald-600 font-medium transition">Khách Hàng</a>
+                    <a href="#faq" class="text-slate-600 hover:text-emerald-600 font-medium transition">FAQ</a>
+                    <a href="#contact"
+                        class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-full shadow-lg shadow-emerald-200 transition transform hover:-translate-y-0.5">
+                        Liên hệ ngay
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+<div class="md:hidden flex items-center">
+    <button class="text-slate-600 hover:text-emerald-600 focus:outline-none">
+        <i class="fa-solid fa-bars text-2xl"></i>
+    </button>
+</div>
+</div>
+</div>
+</nav> -->
+<!-- END COMPONENT: 01-nav-block.html -->
+
+<!-- START COMPONENT: 02-intro.html -->
+<!-- Hero Section -->
+<header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+    <!-- Background elements -->
+    <div class="absolute inset-0 z-0">
+        <div
+            class="absolute -top-40 -right-40 w-96 h-96 bg-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob">
+        </div>
+        <div
+            class="absolute top-20 -left-20 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000">
+        </div>
+        <div
+            class="absolute -bottom-40 left-1/3 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000">
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <span
+            class="inline-block py-1 px-3 rounded-full bg-emerald-100 text-emerald-800 text-sm font-semibold mb-6 shadow-sm border border-emerald-200">
+            Giải pháp ảo hóa số 1 thay thế VMware
+        </span>
+
+
+        <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-tight mb-8">
+            Bảng Giá <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">Proxmox
+                VE
+                2026</span> <br>
+            Tối Ưu Cho Doanh Nghiệp
+        </h1>
+        <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-600 mb-10 leading-relaxed">
+            Giải pháp Private Cloud mạnh mẽ, linh hoạt và tối ưu chi phí.
+            Sẵn sàng cho môi trường doanh nghiệp với sự hỗ trợ chuyên nghiệp từ CSC Distribution - Silver Partner
+            của
+            Proxmox tại Việt Nam.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="#pricing"
+                class="px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-full shadow-xl shadow-emerald-200 transition transform hover:-translate-y-1 text-lg">
+                Xem Bảng Giá
+            </a>
+            <a href="#contact"
+                class="px-8 py-4 bg-white hover:bg-slate-50 text-slate-700 font-bold rounded-full shadow-lg border border-gray-200 transition transform hover:-translate-y-1 text-lg flex items-center justify-center gap-2">
+                <i class="fa-solid fa-phone"></i> Liên hệ tư vấn
+            </a>
+        </div>
+
+        <!-- Tech stack icons -->
+        <div
+            class="mt-16 pt-8 border-t border-gray-200/60 flex justify-center gap-8 opacity-60 grayscale hover:grayscale-0 transition duration-500">
+            <div class="flex flex-col items-center gap-2"><i class="fa-solid fa-server text-3xl"></i><span
+                    class="text-xs font-semibold">Virtualization</span></div>
+            <div class="flex flex-col items-center gap-2"><i class="fa-solid fa-box-open text-3xl"></i><span
+                    class="text-xs font-semibold">Containers</span></div>
+            <div class="flex flex-col items-center gap-2"><i class="fa-solid fa-network-wired text-3xl"></i><span
+                    class="text-xs font-semibold">SDN</span></div>
+            <div class="flex flex-col items-center gap-2"><i class="fa-solid fa-shield-halved text-3xl"></i><span
+                    class="text-xs font-semibold">Backup</span></div>
+        </div>
+    </div>
+</header>
+
+<!-- Intro Proxmox -->
+<section id="about" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+            <div class="mb-12 lg:mb-0">
+                <h2 class="text-3xl font-bold text-slate-900 mb-6">Tại sao chọn Proxmox VE?</h2>
+                <p class="text-lg text-slate-600 mb-6">
+                    Proxmox Virtual Environment (VE) là nền tảng quản lý máy chủ nguồn mở hoàn chỉnh dành cho ảo hóa
+                    doanh nghiệp. Nó tích hợp chặt chẽ bộ ảo hóa KVM và Linux Containers (LXC), chức năng lưu trữ và
+                    mạng định nghĩa bằng phần mềm, và clustering độ sẵn sàng cao trên một giải pháp duy nhất.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <i class="fa-solid fa-check-circle text-emerald-500 mt-1 mr-3"></i>
+                        <span class="text-slate-700"><strong>Thay thế VMware hoàn hảo:</strong> Tiết kiệm chi phí
+                            bản quyền khổng lồ, không bị vendor lock-in.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fa-solid fa-check-circle text-emerald-500 mt-1 mr-3"></i>
+                        <span class="text-slate-700"><strong>Private Cloud linh hoạt:</strong> Phù hợp cho doanh
+                            nghiệp cần hạ tầng non-critical nhưng vẫn đảm bảo tính sẵn sàng.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fa-solid fa-check-circle text-emerald-500 mt-1 mr-3"></i>
+                        <span class="text-slate-700"><strong>Quản lý tập trung:</strong> Giao diện web trực quan, dễ
+                            dàng quản lý hàng trăm node.</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="relative">
+                <div class="absolute inset-0 bg-emerald-600 rounded-3xl rotate-3 opacity-10"></div>
+                <div class="relative bg-slate-900 rounded-3xl p-8 shadow-2xl border border-slate-700">
+                    <div class="flex items-center gap-2 mb-4 border-b border-slate-700 pb-4">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        <span class="text-slate-400 text-sm ml-2">Proxmox VE Dashboard</span>
+                    </div>
+                    <!-- Proxmox Dashboard Image -->
+                    <!-- TODO: Upload your Proxmox dashboard screenshot to WordPress Media Library, then replace the URL below -->
+                    <img src="https://csc-jsc.com/wp-content/uploads/2026/02/proxmox.webp"
+                        alt="Proxmox VE Dashboard Interface" class="w-full rounded-lg shadow-lg" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Policy Section -->
+<section class="py-16 bg-slate-50 border-y border-gray-200">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold text-slate-900 mb-10">Chính Sách & Mô Hình Cấp Phép</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                <div
+                    class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+                    <i class="fa-solid fa-unlock"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Mã Nguồn Mở</h3>
+                <p class="text-sm text-slate-600">Miễn phí tải về và sử dụng đầy đủ tính năng (AGPL, GNU). Bạn chỉ
+                    trả phí cho dịch vụ hỗ trợ và repository ổn định.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                <div
+                    class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Hỗ Trợ SLA</h3>
+                <p class="text-sm text-slate-600">Hỗ trợ kỹ thuật theo giờ hành chính nước Áo (CET/CEST), 8x5. Phản
+                    hồi cam kết theo gói đăng ký.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                <div
+                    class="w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+                    <i class="fa-solid fa-credit-card"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Thanh Toán & Cấp Phép</h3>
+                <p class="text-sm text-slate-600">Tính theo CPU Socket. Thanh toán dễ dàng, có hóa đơn đỏ từ CSC
+                    Distributor.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END COMPONENT: 02-intro.html -->
+
+<!-- START COMPONENT: 03-products.html -->
+<!-- Pricing Table subscription -->
+<section id="pricing" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Bảng Giá Subscription 2026</h2>
+            <p class="text-slate-600 mt-4">Chọn gói hỗ trợ phù hợp với nhu cầu của bạn. Giá tính trên mỗi CPU
+                Socket/Năm.</p>
+        </div>
+
+        <div class="overflow-x-auto p-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 min-w-[800px] md:min-w-0">
+                <!-- Community -->
+                <div
+                    class="border border-gray-200 rounded-2xl p-6 hover:shadow-xl transition relative flex flex-col h-full">
+                    <h3 class="text-xl font-bold text-slate-900">Community</h3>
+                    <div class="text-emerald-600 text-2xl font-bold mt-2">€120 <span
+                            class="text-sm font-normal text-slate-500">/CPU/Năm</span></div>
+                    <ul class="mt-6 space-y-3 text-sm text-slate-600 mb-8 flex-grow">
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Enterprise Repository</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Cập nhật ổn định</li>
+                        <li><i class="fa-solid fa-xmark text-gray-400 mr-2"></i> Không hỗ trợ kỹ thuật</li>
+                    </ul>
+                    <a href="https://csc-jsc.com/contact-us" target="_blank"
+                        class="block w-full py-2 border border-emerald-600 text-emerald-600 font-semibold rounded-lg text-center hover:bg-emerald-50 mt-auto">Liên
+                        hệ CSC</a>
+                </div>
+
+                <!-- Basic -->
+                <div
+                    class="border border-gray-200 rounded-2xl p-6 hover:shadow-xl transition relative flex flex-col h-full">
+                    <h3 class="text-xl font-bold text-slate-900">Basic</h3>
+                    <div class="text-emerald-600 text-2xl font-bold mt-2">€375 <span
+                            class="text-sm font-normal text-slate-500">/CPU/Năm</span></div>
+                    <ul class="mt-6 space-y-3 text-sm text-slate-600 mb-8 flex-grow">
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Enterprise Repository</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> 3 Ticket hỗ trợ/năm</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Phản hồi trong 1 ngày làm việc
+                        </li>
+                    </ul>
+                    <a href="https://csc-jsc.com/contact-us" target="_blank"
+                        class="block w-full py-2 border border-emerald-600 text-emerald-600 font-semibold rounded-lg text-center hover:bg-emerald-50 mt-auto">Liên
+                        hệ CSC</a>
+                </div>
+
+                <!-- Standard -->
+                <div
+                    class="border border-gray-200 rounded-2xl p-6 hover:shadow-xl transition relative bg-emerald-50/50 border-emerald-100 flex flex-col h-full">
+                    <div
+                        class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-slate-800 text-white text-xs px-3 py-1 rounded-full">
+                        Recommended</div>
+                    <h3 class="text-xl font-bold text-slate-900">Standard</h3>
+                    <div class="text-emerald-600 text-2xl font-bold mt-2">€560 <span
+                            class="text-sm font-normal text-slate-500">/CPU/Năm</span></div>
+                    <ul class="mt-6 space-y-3 text-sm text-slate-600 mb-8 flex-grow">
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Enterprise Repository</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> 10 Ticket hỗ trợ/năm</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Phản hồi trong 4 giờ</li>
+                    </ul>
+                    <a href="https://csc-jsc.com/contact-us" target="_blank"
+                        class="block w-full py-2 bg-emerald-600 text-white font-semibold rounded-lg text-center hover:bg-emerald-700 shadow-md mt-auto">Liên
+                        hệ CSC</a>
+                </div>
+
+                <!-- Premium -->
+                <div
+                    class="border border-gray-200 rounded-2xl p-6 hover:shadow-xl transition relative flex flex-col h-full">
+                    <h3 class="text-xl font-bold text-slate-900">Premium</h3>
+                    <div class="text-emerald-600 text-2xl font-bold mt-2">€1120 <span
+                            class="text-sm font-normal text-slate-500">/CPU/Năm</span></div>
+                    <ul class="mt-6 space-y-3 text-sm text-slate-600 mb-8 flex-grow">
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Enterprise Repository</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Không giới hạn Ticket</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Phản hồi trong 2 giờ</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Remote SSH Support</li>
+                    </ul>
+                    <a href="https://csc-jsc.com/contact-us" target="_blank"
+                        class="block w-full py-2 border border-emerald-600 text-emerald-600 font-semibold rounded-lg text-center hover:bg-emerald-50 mt-auto">Liên
+                        hệ CSC</a>
+                </div>
+            </div>
+        </div>
+        <p class="text-center text-xs text-slate-400 mt-6">* Giá trên chỉ là giá tham khảo Catalog. Liên hệ CSC
+            Distribution để nhận mức chiết khấu đối tác tốt nhất.</p>
+    </div>
+</section>
+
+<!-- Bundles -->
+<section id="bundles" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+    <div
+        class="absolute top-0 right-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10">
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+            <span class="text-emerald-400 font-bold tracking-wider uppercase text-sm">Giải pháp trọn gói</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-2 text-white">Gói Bundle Phần Cứng & Phần Mềm</h2>
+            <p class="text-slate-400 mt-4 max-w-2xl mx-auto">Lựa chọn cấu hình tối ưu đã được kiểm thử độ tương
+                thích hoàn hảo với Proxmox VE</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Starter Box -->
+            <div
+                class="bg-slate-800 rounded-3xl p-8 border border-slate-700 hover:border-emerald-500 transition duration-300 hover:shadow-2xl hover:shadow-emerald-900/20 group flex flex-col">
+                <div class="mb-6">
+                    <h3 class="text-2xl font-bold text-white mb-2">Starter Box</h3>
+                    <p class="text-slate-400 text-sm">Dành cho doanh nghiệp nhỏ, Lab setup</p>
+                </div>
+                <div class="flex-grow space-y-4 mb-8">
+
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-server text-emerald-500"></i>
+                        <span class="text-slate-300 text-sm"><strong>Server:</strong> 02 Nodes Độc lập</span>
+                    </div>
+
+
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-microchip text-emerald-500"></i>
+                        <span class="text-slate-300 text-sm"><strong>CPU/Node:</strong> 1x CPU</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-memory text-emerald-500"></i>
+                        <span class="text-slate-300 text-sm"><strong>RAM/Node:</strong> 128GB Ram</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-hard-drive text-emerald-500"></i>
+                        <span class="text-slate-300 text-sm"><strong>Storage:</strong> 2x 480GB SSD + 4x 10TB HDD</span>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-network-wired text-emerald-500"></i>
+                        <span class="text-slate-300 text-sm"><strong>Network:</strong> 1GbE/10GbE LAN</span>
+                    </div>
+                </div>
+                <a href="https://csc-jsc.com/contact-us" target="_blank"
+                    class="block w-full py-3 rounded-xl bg-slate-700 text-white font-semibold group-hover:bg-emerald-600 transition duration-300 text-center">
+                    Nhận Báo Giá
+                </a>
+            </div>
+
+            <!-- Standard Box -->
+            <div
+                class="bg-slate-800 rounded-3xl p-8 border-2 border-emerald-500 shadow-xl shadow-emerald-900/20 relative transform md:-translate-y-4 flex flex-col">
+                <div
+                    class="absolute top-0 right-0 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-2xl">
+                    POPULAR</div>
+                <div class="mb-6">
+                    <h3 class="text-2xl font-bold text-white mb-2">Standard Box</h3>
+                    <p class="text-slate-400 text-sm">Tối ưu cho Production, SMBs</p>
+                </div>
+                <div class="flex-grow space-y-4 mb-8">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-server text-emerald-400"></i>
+                        <span class="text-slate-300 text-sm"><strong>Cluster:</strong> 03 Nodes HA </span>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-microchip text-emerald-400"></i>
+                        <span class="text-slate-300 text-sm"><strong>CPU/Node:</strong> 2x CPU</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-memory text-emerald-400"></i>
+                        <span class="text-slate-300 text-sm"><strong>RAM/Node:</strong> 256GB RAM</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-hard-drive text-emerald-400"></i>
+                        <span class="text-slate-300 text-sm"><strong>Storage:</strong> 2x 480GB + 2x 960GB SSD + 4x 10TB
+                            HDD </span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-network-wired text-emerald-400"></i>
+                        <span class="text-slate-300 text-sm"><strong>Network:</strong> 10GbE Fibre Cluster</span>
+                    </div>
+                </div>
+                <a href="https://csc-jsc.com/contact-us" target="_blank"
+                    class="block w-full py-3 rounded-xl bg-emerald-600 text-white font-semibold hover:bg-emerald-500 transition duration-300 shadow-lg text-center">
+                    Liên hệ CSC để có giá tốt
+                </a>
+            </div>
+
+            <!-- Advanced Box -->
+            <div
+                class="bg-slate-800 rounded-3xl p-8 border border-slate-700 hover:border-emerald-500 transition duration-300 hover:shadow-2xl hover:shadow-emerald-900/20 group flex flex-col">
+                <div class="mb-6">
+                    <h3 class="text-2xl font-bold text-white mb-2">Advanced Box</h3>
+                    <p class="text-slate-400 text-sm">High Performance, HCI Cluster</p>
+                </div>
+                <div class="flex-grow space-y-4 mb-8">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-server text-emerald-500"></i>
+                        <span class="text-slate-300 text-sm"><strong>System:</strong> 03 Nodes HA + SAN Storage</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-microchip text-emerald-500"></i>
+                        <span class="text-slate-300 text-sm"><strong>CPU/Node:</strong> 2x CPU</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-memory text-emerald-500"></i>
+                        <span class="text-slate-300 text-sm"><strong>RAM/Node:</strong> 256GB RAM</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-hard-drive text-emerald-500"></i>
+                        <span class="text-slate-300 text-sm"><strong>SAN Storage:</strong> 100TB Usable (Dual
+                            Controller)</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-shield-halved text-emerald-500"></i>
+                        <span class="text-slate-300 text-sm"><strong>Features:</strong> Ramsomeware Protected</span>
+                    </div>
+                </div>
+                <a href="https://csc-jsc.com/contact-us" target="_blank"
+                    class="block w-full py-3 rounded-xl bg-slate-700 text-white font-semibold group-hover:bg-emerald-600 transition duration-300 text-center">
+                    Nhận Báo Giá
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Service -->
+<section id="service" class="py-20 bg-slate-800 text-white relative overflow-hidden border-t border-slate-700">
+    <div
+        class="absolute top-0 right-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10">
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+            <span class="text-emerald-400 font-bold tracking-wider uppercase text-sm">Dịch vụ chuyên nghiệp</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-2 text-white">Gói Dịch Vụ Kỹ Thuật</h2>
+            <p class="text-slate-400 mt-4 max-w-2xl mx-auto">Đội ngũ kỹ sư Vianamcertified hỗ trợ triển khai và vận
+                hành hệ thống Proxmox chuẩn Enterprise</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Service 1 -->
+            <div
+                class="bg-slate-900 rounded-3xl p-6 border border-slate-700 hover:border-emerald-500 transition duration-300 hover:shadow-2xl hover:shadow-emerald-900/20 group flex flex-col">
+                <div class="mb-4">
+                    <div class="w-12 h-12 bg-emerald-900/50 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-headset text-emerald-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">Support Add-on (VN)</h3>
+                </div>
+                <div class="flex-grow space-y-3 mb-6">
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <span>Hỗ trợ tiếng Việt (Phone/Email)</span>
+                        </li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <span>Không giới hạn Ticket</span>
+                        </li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <span>Phản hồi <strong class="text-white">4 giờ</strong> (Giờ hành chính)</span>
+                        </li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <span>Hỗ trợ Onsite & Online</span>
+                        </li>
+                    </ul>
+                </div>
+                <a href="https://csc-jsc.com/contact-us" target="_blank"
+                    class="block w-full py-2.5 rounded-lg bg-slate-800 border border-slate-600 text-white font-semibold group-hover:bg-emerald-600 group-hover:border-emerald-600 transition duration-300 text-center text-sm">
+                    Nhận Báo Giá
+                </a>
+            </div>
+
+            <!-- Service 2 -->
+            <div
+                class="bg-slate-900 rounded-3xl p-6 border border-slate-700 hover:border-emerald-500 transition duration-300 hover:shadow-2xl hover:shadow-emerald-900/20 group flex flex-col">
+                <div class="mb-4">
+                    <div class="w-12 h-12 bg-blue-900/50 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-rocket text-blue-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">Triển Khai Cơ Bản</h3>
+                </div>
+                <div class="flex-grow space-y-3 mb-6">
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <span>Cài đặt Proxmox VE lên máy chủ vật lý</span>
+                        </li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <span>Cấu hình Network (Bonding/VLAN/Bridge)</span>
+                        </li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <span>Tối ưu hóa Kernel/System cơ bản</span>
+                        </li>
+                    </ul>
+                </div>
+                <a href="https://csc-jsc.com/contact-us" target="_blank"
+                    class="block w-full py-2.5 rounded-lg bg-slate-800 border border-slate-600 text-white font-semibold group-hover:bg-emerald-600 group-hover:border-emerald-600 transition duration-300 text-center text-sm">
+                    Nhận Báo Giá
+                </a>
+            </div>
+
+            <!-- Service 3 -->
+            <div
+                class="bg-slate-900 rounded-3xl p-6 border border-slate-700 hover:border-emerald-500 transition duration-300 hover:shadow-2xl hover:shadow-emerald-900/20 group flex flex-col">
+                <div class="mb-4">
+                    <div class="w-12 h-12 bg-purple-900/50 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-layer-group text-purple-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">Triển Khai Nâng Cao</h3>
+                </div>
+                <div class="flex-grow space-y-3 mb-6">
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <span>Mọi tính năng gói &quot;Cơ Bản&quot;</span>
+                        </li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <span>Tích hợp Storage (SAN/NAS/Ceph)</span>
+                        </li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <span>Tích hợp xác thực (LDAP/AD/2FA)</span>
+                        </li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <span>Thiết lập HA & Backup Policy</span>
+                        </li>
+                    </ul>
+                </div>
+                <a href="https://csc-jsc.com/contact-us" target="_blank"
+                    class="block w-full py-2.5 rounded-lg bg-slate-800 border border-slate-600 text-white font-semibold group-hover:bg-emerald-600 group-hover:border-emerald-600 transition duration-300 text-center text-sm">
+                    Nhận Báo Giá
+                </a>
+            </div>
+
+            <!-- Service 4 -->
+            <div
+                class="bg-slate-900 rounded-3xl p-6 border border-slate-700 hover:border-emerald-500 transition duration-300 hover:shadow-2xl hover:shadow-emerald-900/20 group flex flex-col">
+                <div class="mb-4">
+                    <div class="w-12 h-12 bg-orange-900/50 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-truck-fast text-orange-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">Dịch Vụ Chuyển Đổi VM</h3>
+                </div>
+                <div class="flex-grow space-y-3 mb-6">
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <span>Migrate từ VMware/Hyper-V sang Proxmox</span>
+                        </li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <span>Đảm bảo toàn vẹn dữ liệu</span>
+                        </li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <span>Tối ưu Drivers sau khi chuyển đổi</span>
+                        </li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <span>Minium Order: 10 VMs</span>
+                        </li>
+                    </ul>
+                </div>
+                <a href="https://csc-jsc.com/contact-us" target="_blank"
+                    class="block w-full py-2.5 rounded-lg bg-slate-800 border border-slate-600 text-white font-semibold group-hover:bg-emerald-600 group-hover:border-emerald-600 transition duration-300 text-center text-sm">
+                    Nhận Báo Giá
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- END COMPONENT: 03-products.html -->
+
+<!-- START COMPONENT: 04-trust.html -->
+<!-- Case Studies -->
+<section id="cases" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center text-slate-900 mb-12">Khách Hàng Tiêu Biểu</h2>
+
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden min-h-[400px]">
+            <!-- Tab Headers -->
+            <div class="flex border-b border-gray-200" id="tabs">
+                <button
+                    class="flex-1 py-4 text-center font-semibold text-slate-600 hover:text-emerald-600 border-b-2 border-transparent hover:border-emerald-500 focus:outline-none transition active-tab"
+                    data-target="case-hospital">
+                    <i class="fa-solid fa-hospital mr-2"></i> Bệnh Viện
+                </button>
+                <button
+                    class="flex-1 py-4 text-center font-semibold text-slate-600 hover:text-emerald-600 border-b-2 border-transparent hover:border-emerald-500 focus:outline-none transition"
+                    data-target="case-education">
+                    <i class="fa-solid fa-school mr-2"></i> Giáo Dục
+                </button>
+                <button
+                    class="flex-1 py-4 text-center font-semibold text-slate-600 hover:text-emerald-600 border-b-2 border-transparent hover:border-emerald-500 focus:outline-none transition"
+                    data-target="case-hosting">
+                    <i class="fa-solid fa-server mr-2"></i> Hosting Provider
+                </button>
+
+                <button
+                    class="flex-1 py-4 text-center font-semibold text-slate-600 hover:text-emerald-600 border-b-2 border-transparent hover:border-emerald-500 focus:outline-none transition"
+                    data-target="case-industry">
+                    <i class="fa-solid fa-industry mr-2"></i> Industry
+                </button>
+            </div>
+
+            <!-- Tab Contents -->
+            <div class="p-8 md:p-12">
+                <div id="case-hospital" class="tab-content block animate-fadeIn">
+                    <div class="md:flex gap-8 items-center">
+                        <div class="md:w-1/3 mb-6 md:mb-0">
+                            <div class="aspect-video bg-emerald-100 rounded-2xl flex items-center justify-center">
+                                <i class="fa-regular fa-hospital text-6xl text-emerald-600"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-4">Chuyển Đổi Số Hạ Tầng Y Tế</h3>
+                            <p class="text-slate-600 mb-4">Bệnh viện đa khoa X cần hệ thống HIS/LIS hoạt động liên
+                                tục 24/7 nhưng chi phí VMware ngày càng cao. CSC Distribution đã tư vấn chuyển đổi
+                                sang Proxmox VE Cluster 5 node.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="text-sm text-slate-600"><i
+                                        class="fa-solid fa-check text-emerald-500 mr-2"></i> Tiết kiệm 60% chi phí
+                                    license hàng năm.</li>
+                                <li class="text-sm text-slate-600"><i
+                                        class="fa-solid fa-check text-emerald-500 mr-2"></i> Backup tự động mỗi 15
+                                    phút an toàn dữ liệu bệnh nhân.</li>
+                            </ul>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLS.../viewform" target="_blank"
+                                class="inline-block px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition">Tải
+                                Case Study (PDF)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="case-education" class="tab-content hidden animate-fadeIn">
+                    <div class="md:flex gap-8 items-center">
+                        <div class="md:w-1/3 mb-6 md:mb-0">
+                            <div class="aspect-video bg-purple-100 rounded-2xl flex items-center justify-center">
+                                <i class="fa-solid fa-graduation-cap text-6xl text-purple-600"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-4">IQS Barcelona - Cắt Giảm 60% Chi Phí Giáo
+                                Dục</h3>
+                            <p class="text-slate-600 mb-4">Trường Đại học IQS tại Barcelona đã chuyển đổi từ VMware sang
+                                Proxmox VE HCI để thoát khỏi vendor lock-in và chi phí license cao. Hệ thống cluster 3
+                                node với Ceph storage phục vụ hơn 50 người dùng VDI.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="text-sm text-slate-600"><i
+                                        class="fa-solid fa-check text-emerald-500 mr-2"></i>
+                                    Tiết kiệm 60% chi phí license hàng năm.</li>
+                                <li class="text-sm text-slate-600"><i
+                                        class="fa-solid fa-check text-emerald-500 mr-2"></i>
+                                    Tăng tốc 30% thời gian triển khai VM.</li>
+                                <li class="text-sm text-slate-600"><i
+                                        class="fa-solid fa-check text-emerald-500 mr-2"></i>
+                                    Cluster 3 node Lenovo SR650, 256GB RAM/node, Ceph NVMe.</li>
+                            </ul>
+                            <a href="https://www.proxmox.com/en/about/about-us/stories/story/iqs" target="_blank"
+                                class="px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition inline-block">Đọc
+                                Success Story</a>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-gray-200 my-10"></div>
+
+                    <div class="md:flex gap-8 items-center">
+                        <div class="md:w-1/3 mb-6 md:mb-0">
+                            <div class="aspect-video bg-indigo-100 rounded-2xl flex items-center justify-center">
+                                <i class="fa-solid fa-chalkboard-user text-6xl text-indigo-600"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-4">Sở Giáo Dục Tỉnh X - E-Learning Cho
+                                50,000 Học Sinh</h3>
+                            <p class="text-slate-600 mb-4">Sở Giáo Dục tỉnh X triển khai Proxmox VE để xây dựng hạ tầng
+                                E-Learning phục vụ 200+ trường học. Hệ thống đảm bảo hoạt động ổn định trong mùa dịch
+                                COVID-19 với hàng chục nghìn học sinh truy cập đồng thời.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="text-sm text-slate-600"><i
+                                        class="fa-solid fa-check text-emerald-500 mr-2"></i>
+                                    Phục vụ 50,000+ học sinh truy cập đồng thời.</li>
+                                <li class="text-sm text-slate-600"><i
+                                        class="fa-solid fa-check text-emerald-500 mr-2"></i>
+                                    High Availability Cluster đảm bảo uptime 99.9%.</li>
+                                <li class="text-sm text-slate-600"><i
+                                        class="fa-solid fa-check text-emerald-500 mr-2"></i>
+                                    Tích hợp LMS (Moodle) và Video Conferencing.</li>
+                            </ul>
+                            <a href="https://csc-jsc.com/contact-us" target="_blank"
+                                class="px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition inline-block">Liên
+                                Hệ Tư Vấn</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="case-industry" class="tab-content hidden animate-fadeIn">
+                    <div class="md:flex gap-8 items-center">
+                        <div class="md:w-1/3 mb-6 md:mb-0">
+                            <div class="aspect-video bg-rose-100 rounded-2xl flex items-center justify-center">
+                                <i class="fa-solid fa-brain text-6xl text-rose-600"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-4">Scale-up Hệ Thống GenAI</h3>
+                            <p class="text-slate-600 mb-4">Startup V gặp thách thức khi user tăng đột biến.
+                                Giải
+                                pháp Cluster Proxmox tự động cân bằng tải và tối ưu hóa luồng dữ liệu Inference.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="text-sm text-slate-600"><i
+                                        class="fa-solid fa-check text-emerald-500 mr-2"></i>
+                                    Xử lý 10,000+ request đồng thời.</li>
+                                <li class="text-sm text-slate-600"><i
+                                        class="fa-solid fa-check text-emerald-500 mr-2"></i>
+                                    Tích hợp NVMe Storage siêu tốc.</li>
+                            </ul>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLS.../viewform" target="_blank"
+                                class="inline-block px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition">Xem
+                                Case Study</a>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-gray-200 my-10"></div>
+
+                    <div class="md:flex gap-8 items-center">
+                        <div class="md:w-1/3 mb-6 md:mb-0">
+                            <div class="aspect-video bg-blue-100 rounded-2xl flex items-center justify-center">
+                                <i class="fa-solid fa-building text-6xl text-blue-600"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-4">HorizonIQ - Thoát Khỏi VMware, Tiết Kiệm
+                                94% Chi Phí</h3>
+                            <p class="text-slate-600 mb-4">HorizonIQ đã chuyển đổi toàn bộ hạ tầng ảo hóa từ VMware sang
+                                Proxmox VE khi chi phí license tăng lên hơn $500,000/năm. Hệ thống cluster 19 node với
+                                Ceph storage đảm bảo khả năng mở rộng và độ tin cậy cao.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="text-sm text-slate-600"><i
+                                        class="fa-solid fa-check text-emerald-500 mr-2"></i>
+                                    Giảm chi phí từ $500K xuống $15K/năm (tiết kiệm 94%).</li>
+                                <li class="text-sm text-slate-600"><i
+                                        class="fa-solid fa-check text-emerald-500 mr-2"></i>
+                                    Chuyển đổi 300+ VMs, 760 vCPUs, gần 10TB RAM.</li>
+                                <li class="text-sm text-slate-600"><i
+                                        class="fa-solid fa-check text-emerald-500 mr-2"></i>
+                                    90TB Ceph storage + 225TB flash storage cho hiệu suất cao.</li>
+                            </ul>
+                            <a href="https://www.proxmox.com/en/about/about-us/stories/story/horizoniq" target="_blank"
+                                class="px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition inline-block">Đọc
+                                Success Story</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="case-hosting" class="tab-content hidden animate-fadeIn">
+                    <div class="md:flex gap-8 items-center">
+                        <div class="md:w-1/3 mb-6 md:mb-0">
+                            <div class="aspect-video bg-blue-100 rounded-2xl flex items-center justify-center">
+                                <i class="fa-solid fa-cloud text-6xl text-blue-600"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-4">Cloud VPS Provider</h3>
+                            <p class="text-slate-600 mb-4">Nhà cung cấp Hosting V cần thay thế Cpanel/Virtuozzo cũ
+                                kỹ. Hệ thống Proxmox + Ceph Storage mang lại khả năng mở rộng không giới hạn.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="text-sm text-slate-600"><i
+                                        class="fa-solid fa-check text-emerald-500 mr-2"></i>
+                                    Zero Downtime
+                                    Migration.</li>
+                                <li class="text-sm text-slate-600"><i
+                                        class="fa-solid fa-check text-emerald-500 mr-2"></i>
+                                    Tích hợp billing tự
+                                    động qua API.</li>
+                            </ul>
+                            <a href="https://csc-jsc.com/contact-us" target="_blank"
+                                class="inline-block px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition">Liên
+                                hệ chuyên gia</a>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-gray-200 my-10"></div>
+
+                    <div class="md:flex gap-8 items-center">
+                        <div class="md:w-1/3 mb-6 md:mb-0">
+                            <div class="aspect-video bg-indigo-100 rounded-2xl flex items-center justify-center">
+                                <i class="fa-solid fa-building-columns text-6xl text-indigo-600"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-4">Enterprise Private Cloud</h3>
+                            <p class="text-slate-600 mb-4">Tập đoàn Fintech F cần hệ thống Private Cloud tuân thủ
+                                chuẩn
+                                PCI-DSS. Giải pháp High Availability Cluster đảm bảo vận hành liên tục 24/7/365.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="text-sm text-slate-600"><i
+                                        class="fa-solid fa-check text-emerald-500 mr-2"></i>
+                                    Tuân thủ nghiêm ngặt bảo mật dữ liệu.</li>
+                                <li class="text-sm text-slate-600"><i
+                                        class="fa-solid fa-check text-emerald-500 mr-2"></i>
+                                    Quản lý tập trung đa chi nhánh (Multi-site).</li>
+                            </ul>
+                            <a href="https://csc-jsc.com/contact-us" target="_blank"
+                                class="inline-block px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition">Tư
+                                vấn Doanh Nghiệp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why CSC -->
+<section class="py-20 bg-emerald-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold mb-12 text-white">Tại Sao Mua Hàng Tại CSC Distribution?</h2>
+        <div class="grid md:grid-cols-4 gap-10">
+            <div class="p-6">
+                <div
+                    class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6 backdrop-blur">
+                    <i class="fa-solid fa-medal text-3xl text-yellow-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-white">Silver Partner</h3>
+                <p class="text-emerald-100 text-sm">Đối tác ủy quyền cao cấp nhất của Proxmox tại Việt Nam. Chính
+                    sách giá và hỗ trợ tốt nhất thị trường.</p>
+            </div>
+            <div class="p-6">
+                <div
+                    class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6 backdrop-blur">
+                    <i class="fa-solid fa-users-gear text-3xl text-blue-300"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-white">Đội Ngũ Chuyên Gia</h3>
+                <p class="text-emerald-100 text-sm">Kinh nghiệm hàng đầu triển khai Ảo hóa, Private Cloud, Data và
+                    AI cho các doanh nghiệp lớn.</p>
+            </div>
+            <div class="p-6">
+                <div
+                    class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6 backdrop-blur">
+                    <i class="fa-solid fa-cubes text-3xl text-purple-300"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-white">Hệ Sinh Thái Đa Dạng</h3>
+                <p class="text-emerald-100 text-sm">Cung cấp trọn gói Máy chủ, Bộ Lưu Trữ, Giải pháp Sao lưu dữ liệu
+                    và Bảo mật.</p>
+            </div>
+
+            <div class="p-6">
+                <div
+                    class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6 backdrop-blur">
+                    <i class="fa-solid fa-file-invoice text-3xl text-purple-300"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-white">Hỗ trợ hóa đơn dấu đỏ</h3>
+                <p class="text-emerald-100 text-sm">Hỗ trợ xuất hóa đơn VAT cho doanh nghiệp.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-20 bg-slate-50">
+    <div class="max-w-3xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-slate-900 mb-12">Câu Hỏi Thường Gặp (FAQ)</h2>
+        <div class="space-y-4">
+            <!-- FAQ Item 1 -->
+            <div class="border border-gray-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                <button
+                    class="w-full px-6 py-4 text-left flex justify-between items-center bg-white hover:bg-gray-50 transition focus:outline-none faq-btn">
+                    <span class="font-semibold text-slate-800">Q: Proxmox có miễn phí không?</span>
+                    <i class="fa-solid fa-chevron-down text-slate-400 transform transition-transform duration-300"></i>
+                </button>
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out faq-content">
+                    <div class="px-6 pb-4 text-slate-600 border-t border-gray-100 pt-4">
+                        A: Có. Proxmox VE là mã nguồn mở. Tuy nhiên, để tiếp cận kho Repository Doanh nghiệp ổn định
+                        và dịch vụ hỗ trợ kỹ thuật chuyên nghiệp, bạn cần mua subscription.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="border border-gray-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                <button
+                    class="w-full px-6 py-4 text-left flex justify-between items-center bg-white hover:bg-gray-50 transition focus:outline-none faq-btn">
+                    <span class="font-semibold text-slate-800">Q: Mua Proxmox ở đâu?</span>
+                    <i class="fa-solid fa-chevron-down text-slate-400 transform transition-transform duration-300"></i>
+                </button>
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out faq-content">
+                    <div class="px-6 pb-4 text-slate-600 border-t border-gray-100 pt-4">
+                        A: Bạn có thể liên hệ các đối tác ủy quyền như CSC Distribution để có mức chiết khấu tốt
+                        hơn, xuất hóa đơn VAT và nhận thêm dịch vụ hỗ trợ triển khai tại Việt Nam.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="border border-gray-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                <button
+                    class="w-full px-6 py-4 text-left flex justify-between items-center bg-white hover:bg-gray-50 transition focus:outline-none faq-btn">
+                    <span class="font-semibold text-slate-800">Q: Cách tính giá/license của Proxmox như thế
+                        nào?</span>
+                    <i class="fa-solid fa-chevron-down text-slate-400 transform transition-transform duration-300"></i>
+                </button>
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out faq-content">
+                    <div class="px-6 pb-4 text-slate-600 border-t border-gray-100 pt-4">
+                        A: Proxmox tính phí Subscription dựa trên số lượng Physical CPU Socket (khe cắm CPU vật lý)
+                        của máy chủ, theo chu kỳ hàng năm. Không giới hạn số core CPU hay dung lượng RAM.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="border border-gray-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                <button
+                    class="w-full px-6 py-4 text-left flex justify-between items-center bg-white hover:bg-gray-50 transition focus:outline-none faq-btn">
+                    <span class="font-semibold text-slate-800">Q: Proxmox cung cấp SLA dịch vụ như thế nào?</span>
+                    <i class="fa-solid fa-chevron-down text-slate-400 transform transition-transform duration-300"></i>
+                </button>
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out faq-content">
+                    <div class="px-6 pb-4 text-slate-600 border-t border-gray-100 pt-4">
+                        A: Dịch vụ mặc định của Proxmox là NBD 8x5 theo giờ của Áo. Tại Việt Nam, CSC Distribution
+                        là đối tác Bạc có thể hỗ trợ quý khách kết nối nhanh chóng và cung cấp dịch vụ bổ sung tiếng
+                        Việt.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="border border-gray-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                <button
+                    class="w-full px-6 py-4 text-left flex justify-between items-center bg-white hover:bg-gray-50 transition focus:outline-none faq-btn">
+                    <span class="font-semibold text-slate-800">Q: Mua Proxmox có hóa đơn không?</span>
+                    <i class="fa-solid fa-chevron-down text-slate-400 transform transition-transform duration-300"></i>
+                </button>
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out faq-content">
+                    <div class="px-6 pb-4 text-slate-600 border-t border-gray-100 pt-4">
+                        A: Có. Khách hàng mua license dịch vụ qua CSC Distribution sẽ được cung cấp đầy đủ hóa đơn
+                        tài chính hợp lệ theo quy định pháp luật Việt Nam.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END COMPONENT: 04-trust.html -->
+
+<!-- START COMPONENT: 05-footer-block.html -->
+<!-- Footer -->
+    <footer id="contact" class="bg-slate-900 border-t border-slate-800 text-slate-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <h3 class="text-white text-2xl font-bold mb-4">CSC <span
+                            class="text-emerald-500">Distribution</span>
+                    </h3>
+                    <p class="mb-4 text-sm max-w-sm">Đối tác ủy quyền chính thức của Proxmox tại Việt Nam. Chúng tôi
+                        cung cấp giải pháp hạ tầng CNTT toàn diện cho doanh nghiệp.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-400 hover:text-white transition"><i
+                                class="fa-brands fa-facebook text-xl"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-white transition"><i
+                                class="fa-brands fa-linkedin text-xl"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-white transition"><i
+                                class="fa-brands fa-youtube text-xl"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Liên Kết</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#about" class="hover:text-emerald-500 transition">Về Proxmox</a></li>
+                        <li><a href="#pricing" class="hover:text-emerald-500 transition">Bảng Giá</a></li>
+                        <li><a href="#cases" class="hover:text-emerald-500 transition">Khách Hàng</a></li>
+                        <li><a href="#" class="hover:text-emerald-500 transition">Tin Tức & Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Liên Hệ</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex items-start"><i class="fa-solid fa-location-dot mt-1 mr-2 text-emerald-500"></i>
+                            Tầng 5, Tòa nhà CSC, Hà Nội</li>
+                        <li class="flex items-center"><i class="fa-solid fa-phone mr-2 text-emerald-500"></i> +84 90 123
+                            4567</li>
+                        <li class="flex items-center"><i class="fa-solid fa-envelope mr-2 text-emerald-500"></i>
+                            sales@csc-distribution.com.vn</li>
+                        <li class="flex items-center"><i class="fa-solid fa-globe mr-2 text-emerald-500"></i>
+                            www.csc-distribution.com.vn</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 mt-12 pt-8 text-center text-xs">
+                &copy; 2026 CSC Distribution. All rights reserved. Proxmox is a registered trademark of Proxmox Server
+                Solutions GmbH.
+            </div>
+        </div>
+    </footer>
+
+<!-- END COMPONENT: 05-footer-block.html -->
+
+<!-- Interactive Script -->
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+
+                // Toggle current
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    // Close others
+                    document.querySelectorAll('.faq-content').forEach(el => el.style.maxHeight = null);
+                    document.querySelectorAll('.faq-btn i').forEach(el => el.style.transform = 'rotate(0deg)');
+
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Tabs
+        const tabs = document.querySelectorAll('[data-target]');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active classes
+                tabs.forEach(t => {
+                    t.classList.remove('border-emerald-500', 'text-emerald-600');
+                    t.classList.add('border-transparent');
+                });
+                tabContents.forEach(c => c.classList.add('hidden'));
+
+                // Add active state to click
+                tab.classList.remove('border-transparent');
+                tab.classList.add('border-emerald-500', 'text-emerald-600');
+
+                const target = document.querySelector(`#${tab.dataset.target}`);
+                target.classList.remove('hidden');
+            });
+        });
+
+        // Set Default Active Tab styling
+        const defaultTab = document.querySelector('.active-tab');
+        if (defaultTab) {
+            defaultTab.classList.remove('border-transparent');
+            defaultTab.classList.add('border-emerald-500', 'text-emerald-600');
+        }
+    </script>
+</body>
+</html>
